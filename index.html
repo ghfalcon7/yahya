@@ -24,17 +24,26 @@
             height: auto;
         }
         button {
-            padding: 10px 20px;
-            font-size: 1.2em;
+            width: 50px;
+            height: 50px;
+            padding: 12px;
             cursor: pointer;
             background-color: #fff;
             border: 2px solid #ccc;
-            border-radius: 5px;
+            border-radius: 50%;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         button:hover {
             background-color: #f0f0f0;
-            transform: translateY(-2px);
+            transform: rotate(180deg);
+        }
+        button svg {
+            width: 24px;
+            height: 24px;
+            box-shadow: none;
         }
     </style>
 </head>
@@ -42,7 +51,12 @@
     <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
         <circle id="colorCircle" cx="100" cy="100" r="80" fill="red"/>
     </svg>
-    <button onclick="changeColor()">↻ Change Color</button>
+    <button onclick="changeColor()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.1 8.7c-.5-1.7-1.5-3.2-2.9-4.3-2.3-1.8-5.2-2.4-8-1.7-2.8.7-5 2.7-6.1 5.4-.9 2.1-.9 4.5 0 6.6 1.1 2.7 3.3 4.7 6.1 5.4.5.1 1 .2 1.5.2.9 0 1.8-.1 2.6-.4" stroke-linecap="round"/>
+            <path d="M19.4 8.7h1.7V7M4.8 15.3c.5 1.7 1.5 3.2 2.9 4.3 2.3 1.8 5.2 2.4 8 1.7" stroke-linecap="round"/>
+        </svg>
+    </button>
 
     <script>
         const colors = ['red', 'blue', 'yellow', 'green', 'black', 'orange'];
