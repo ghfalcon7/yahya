@@ -45,6 +45,10 @@
             height: 24px;
             box-shadow: none;
         }
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
@@ -57,12 +61,19 @@
     <audio id="greenSound" src="sounds/green.mp3"></audio>
     <audio id="blackSound" src="sounds/black.mp3"></audio>
     <audio id="orangeSound" src="sounds/orange.mp3"></audio>
-    <button onclick="changeColor()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21.1 8.7c-.5-1.7-1.5-3.2-2.9-4.3-2.3-1.8-5.2-2.4-8-1.7-2.8.7-5 2.7-6.1 5.4-.9 2.1-.9 4.5 0 6.6 1.1 2.7 3.3 4.7 6.1 5.4.5.1 1 .2 1.5.2.9 0 1.8-.1 2.6-.4" stroke-linecap="round"/>
-            <path d="M19.4 8.7h1.7V7M4.8 15.3c.5 1.7 1.5 3.2 2.9 4.3 2.3 1.8 5.2 2.4 8 1.7" stroke-linecap="round"/>
-        </svg>
-    </button>
+    <div class="button-container">
+        <button onclick="changeColor()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21.1 8.7c-.5-1.7-1.5-3.2-2.9-4.3-2.3-1.8-5.2-2.4-8-1.7-2.8.7-5 2.7-6.1 5.4-.9 2.1-.9 4.5 0 6.6 1.1 2.7 3.3 4.7 6.1 5.4.5.1 1 .2 1.5.2.9 0 1.8-.1 2.6-.4" stroke-linecap="round"/>
+                <path d="M19.4 8.7h1.7V7M4.8 15.3c.5 1.7 1.5 3.2 2.9 4.3 2.3 1.8 5.2 2.4 8 1.7" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <button onclick="toggleFullscreen()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3h7v7H3V3zM14 3h7v7h-7V3zM14 14h7v7h-7v-7zM3 14h7v7H3v-7z"/>
+            </svg>
+        </button>
+    </div>
 
     <script>
         const colors = ['red', 'blue', 'yellow', 'green', 'black', 'orange'];
@@ -79,6 +90,16 @@
             const audio = document.getElementById(currentColor + 'Sound');
             audio.currentTime = 0; // Reset the audio to start
             audio.play();
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
         }
     </script>
 </body>
